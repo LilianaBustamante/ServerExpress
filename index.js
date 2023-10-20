@@ -1,16 +1,16 @@
 // Import del modulo de express
 // Se guarda en una constante llamada express
 
-const express = require('express');
+//const express = require('express');
 
 //Instaciar el modulo en una app
 // El cual sera llamado en futuros endpoint
-const app = express();
+//const app = express();
 
 //SOLICITUDES:
 
 //configuracion de la primera respuesta a una solicitud (INDEX)
-app.get('/', (req, res) => {
+/*app.get('/', (req, res) => {
     res.send('Hola mundo :3');
 });
 
@@ -118,3 +118,20 @@ app.listen(3000, () => {
     console.log('Servidor en el puerto 3000');
 });
 
+*/
+
+const express = require('express');
+const app = express();
+
+app.set('view engine', 'ejs');
+
+app.use(express.static('public'));
+
+app.get('/', (req, res) => {
+   // res.send('Funcionando...');
+    res.render('index');
+});
+
+app.listen(3000, () => {
+    console.log('Servidor en puerto 3000');
+});
